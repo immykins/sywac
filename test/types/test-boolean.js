@@ -7,7 +7,7 @@ const parent = require('path').basename(__filename, '.js')
 const helper = require('../helper').get(parent)
 const assertNoErrors = helper.assertNoErrors.bind(helper)
 
-tap.test('array > via specific api methods', async t => {
+tap.test('boolean > via specific api methods', async t => {
   const result = await Api.get()
     .boolean('-b, --bool')
     .boolean('-b2, -bool')
@@ -23,7 +23,7 @@ tap.test('array > via specific api methods', async t => {
   t.equal(result.argv.b2, false)
 })
 
-tap.test('array > via generic api method', async t => {
+tap.test('boolean > via generic api method', async t => {
   const result = await Api.get()
     .option('--bool', { type: 'boolean' })
     .option('--bool2', { type: 'boolean' })
